@@ -141,6 +141,12 @@
         </div>
     </div>
 
+    <!-- ===== IMAGE LIGHTBOX (full-screen image popup) ===== -->
+    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightboxImage" src="" alt="">
+    </div>
+
     <!-- This line pulls in our JavaScript file. Must be near the end of <body>
          so the HTML above it already exists by the time the script runs. -->
     <script src="script.js"></script>
