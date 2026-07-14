@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhawani Jewellers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/iconfont/tabler-icons.min.css">
+
+    <!-- This line pulls in our CSS file. Must match the file name exactly. -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="particleField"></div>
+
+    <header>
+        <div class="brand">BHAWANI JEWELLERS</div>
+        <nav>
+            <a href="#">Women</a>
+            <a href="#">Men</a>
+            <a href="#">Silver</a>
+            <a href="#visit" class="nav-cta">Enquire Now</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="eyebrow">Est. In Trust · Crafted In Gold</div>
+        <h1>BHAWANI JEWELLERS</h1>
+        <p class="tagline">Timeless Craftsmanship, Generations of Trust</p>
+
+        <div class="jewelry-row">
+            <div class="jewelry-piece">
+                <i class="ti ti-diamond"></i>
+                <span>Necklace</span>
+            </div>
+            <div class="jewelry-piece">
+                <i class="ti ti-circle-dotted"></i>
+                <span>Ring</span>
+            </div>
+            <div class="jewelry-piece">
+                <i class="ti ti-disc"></i>
+                <span>Bangles</span>
+            </div>
+            <div class="jewelry-piece">
+                <i class="ti ti-sparkles"></i>
+                <span>Earrings</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CATEGORIES SECTION ===== -->
+    <section class="categories">
+        <div class="section-head">
+            <h2>Our Collections</h2>
+            <p>Handcrafted gold and silver, for every occasion</p>
+        </div>
+
+        <!-- Gender tabs — filters by Men/Women first -->
+        <div class="category-tabs" id="genderTabs">
+            <div class="tab" data-gender="All">All</div>
+            <div class="tab" data-gender="Women">Women</div>
+            <div class="tab" data-gender="Men">Men</div>
+        </div>
+
+        <!-- id="categoryTabs" lets JS find this container and attach clicks -->
+        <div class="category-tabs" id="categoryTabs">
+            <div class="tab" data-category="All">All</div>
+            <div class="tab" data-category="Necklace">Necklace</div>
+            <div class="tab" data-category="Rings">Rings</div>
+            <div class="tab" data-category="Bangles">Bangles</div>
+            <div class="tab" data-category="Earrings">Earrings</div>
+            <div class="tab" data-category="Chains">Chains</div>
+            <div class="tab" data-category="Mangalsutra">Mangalsutra</div>
+            <div class="tab" data-category="Pendants">Pendants</div>
+        </div>
+
+        <!-- This grid starts EMPTY — script.js fills it in -->
+        <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <!-- ===== CONTACT / VISIT SECTION ===== -->
+    <section class="contact" id="visit">
+        <div class="section-head">
+            <h2>Visit Our Showroom</h2>
+            <p>Step in, and let us help you find a piece that stays with you for years.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="c-row">
+                    <i class="ti ti-map-pin"></i>
+                    <div>
+                        <div class="c-label">Address</div>
+                        <div class="c-value">Mangalmurti Complex, Bagicha Vistar, Himmatnagar, Gujarat</div>
+                    </div>
+                </div>
+                <div class="c-row">
+                    <i class="ti ti-phone"></i>
+                    <div>
+                        <div class="c-label">Phone</div>
+                        <div class="c-value">+91 95125 23007</div>
+                    </div>
+                </div>
+                <div class="c-row">
+                    <i class="ti ti-brand-whatsapp"></i>
+                    <div>
+                        <div class="c-label">WhatsApp</div>
+                        <div class="c-value">+91 95125 23007</div>
+                    </div>
+                </div>
+                <div class="c-row">
+                    <i class="ti ti-clock"></i>
+                    <div>
+                        <div class="c-label">Showroom Timings</div>
+                        <div class="c-value">10:00 AM – 8:30 PM, All Days</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="enquire-box">
+                <h3>Looking For Something Specific?</h3>
+                <p>Tell us the occasion, budget, or design in mind — we'll help you find or create the right piece.</p>
+                <a href="https://wa.me/919512523007?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20jewelry%20piece" class="btn-gold" target="_blank">
+                    <i class="ti ti-brand-whatsapp"></i> Enquire on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Bhawani Jewellers · Timeless Craftsmanship, Generations of Trust
+    </footer>
+
+    <!-- ===== PRODUCT DETAILS MODAL ===== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- This line pulls in our JavaScript file. Must be near the end of <body>
+         so the HTML above it already exists by the time the script runs. -->
+    <script src="script.js"></script>
+
+</body>
+</html>
