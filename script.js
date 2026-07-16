@@ -21,24 +21,24 @@ function getArt(category) {
    1. DATA — every product lives here as a JS object.
       Want to add a new product? Add one line here.
       No HTML editing needed anywhere else.
-      "image" field points to files inside the /images folder.
+      "image" field will be added later when real photos are ready.
 ========================================================= */
 const products = [
     // ---- WOMEN ----
     { id: 1, name: "Polki Necklace Set", price: 182000, category: "Necklace", gender: "Women", purity: "22K Gold", weight: "42 grams", description: "A traditional polki necklace set with uncut diamonds, handcrafted for bridal and festive wear.", image: "images/polki-necklace.webp" },
     { id: 2, name: "Temple Necklace", price: 265000, category: "Necklace", gender: "Women", purity: "22K Gold", weight: "58 grams", description: "Temple-style necklace featuring deity motifs, inspired by South Indian craftsmanship.", image: "images/temple-necklace.jpg" },
-    { id: 3, name: "Silver Oxidised Earrings", price: 5000, category: "Earrings", gender: "Women", purity: "925 Silver", weight: "57 grams", description: "Lightweight oxidised silver earrings, perfect for everyday and ethnic wear.", image: "images/silver-earrings.webp" },
-    { id: 4, name: "Gold Jhumka Earrings", price: 1249990, category: "Earrings", gender: "Women", purity: "22K Gold", weight: "36 grams", description: "Classic jhumka earrings with fine filigree work and a gold polish finish.", image: "images/gold-jhumka.avif" },
-    { id: 5, name: "Women's Gold Kada", price: 38000, category: "Bangles", gender: "Women", purity: "22K Gold", weight: "22 grams", description: "Delicate gold kada with floral engraving, designed for daily and festive wear." },
-    { id: 6, name: "Diamond Cocktail Ring", price: 32000, category: "Rings", gender: "Women", purity: "18K Gold", weight: "6 grams", description: "Statement cocktail ring set with certified diamonds on an 18K gold band." },
-    { id: 7, name: "Gold Mangalsutra", price: 56000, category: "Mangalsutra", gender: "Women", purity: "22K Gold", weight: "18 grams", description: "Traditional black-bead mangalsutra with a gold pendant, made to order." },
-    { id: 8, name: "Gold Pendant Set", price: 21000, category: "Pendants", gender: "Women", purity: "22K Gold", weight: "9 grams", description: "Elegant pendant with matching chain, suitable for both casual and festive wear." },
+    { id: 3, name: "Silver Oxidised Earrings", price: 1800, category: "Earrings", gender: "Women", purity: "925 Silver", weight: "8 grams", description: "Lightweight oxidised silver earrings, perfect for everyday and ethnic wear.", image: "images/silver-earrings.webp" },
+    { id: 4, name: "Gold Jhumka Earrings", price: 24500, category: "Earrings", gender: "Women", purity: "22K Gold", weight: "14 grams", description: "Classic jhumka earrings with fine filigree work and a gold polish finish.", image: "images/gold-jhumka.avif" },
+    { id: 5, name: "Women's Gold Bangles", price: 38000, category: "Bangles", gender: "Women", purity: "22K Gold", weight: "22 grams", description: "Delicate gold kada with floral engraving, designed for daily and festive wear.", image: "images/womens-gold-bangles.jpg" },
+    { id: 6, name: "Diamond Cocktail Ring", price: 32000, category: "Rings", gender: "Women", purity: "18K Gold", weight: "6 grams", description: "Statement cocktail ring set with certified diamonds on an 18K gold band.", image: "images/diamond-cocktail-ring.webp" },
+    { id: 7, name: "Gold Mangalsutra", price: 56000, category: "Mangalsutra", gender: "Women", purity: "22K Gold", weight: "18 grams", description: "Traditional black-bead mangalsutra with a gold pendant, made to order.", image: "images/gold-mangalsutra.jpg" },
+    { id: 8, name: "Gold Pendant Set", price: 21000, category: "Pendants", gender: "Women", purity: "22K Gold", weight: "9 grams", description: "Elegant pendant with matching chain, suitable for both casual and festive wear.", image: "images/gold-pendant-set.jpg" },
 
     // ---- MEN ----
     { id: 9, name: "Men's Gold Kada", price: 45000, category: "Bangles", gender: "Men", purity: "22K Gold", weight: "32 grams", description: "Heavy, plain-finish gold kada designed for daily wear with a bold, masculine look.", image: "images/mens-gold-kada.webp" },
-    { id: 10, name: "Gold Chain", price: 115000, category: "Chains", gender: "Men", purity: "22K Gold", weight: "28.15 grams", description: "Classic thick gold chain with a high-polish finish, a wardrobe staple.", image: "images/mens-gold-chain.webp" },
+    { id: 10, name: "Gold Chain", price: 62000, category: "Chains", gender: "Men", purity: "22K Gold", weight: "28 grams", description: "Classic thick gold chain with a high-polish finish, a wardrobe staple.", image: "images/mens-gold-chain.webp" },
     { id: 11, name: "Silver Bracelet", price: 8500, category: "Bangles", gender: "Men", purity: "925 Silver", weight: "16 grams", description: "Sturdy silver bracelet with a matte finish, suited for casual daily wear.", image: "images/mens-silver-bracelet.jpg" },
-    { id: 12, name: "Gold Lion Ring", price: 179000, category: "Rings", gender: "Men", purity: "22K Gold", weight: "11.118 grams", description: "Simple, sturdy gold band ring — a timeless everyday choice.", image: "images/gold-lion-ring.jpg" }
+    { id: 12, name: "Gold Band Ring", price: 18500, category: "Rings", gender: "Men", purity: "22K Gold", weight: "9 grams", description: "Simple, sturdy gold band ring — a timeless everyday choice.", image: "images/gold-lion-ring.jpg" }
 ];
 
 // Keeps track of which gender and category are currently selected.
@@ -66,7 +66,7 @@ function renderProducts(list) {
         return `
             <div class="product-card">
                 <div class="product-image">
-                    ${product.image ? `<img src="${product.image}" alt="${product.name}" onclick="openLightbox('${product.image}', '${product.name.replace(/'/g, "\\'")}')">` : getArt(product.category)}
+                    ${product.image ? `<img src="${product.image}" alt="${product.name}" onclick="openImageModal('${product.image}', '${product.name.replace(/'/g, "\\'")}')" style="cursor: zoom-in;">` : getArt(product.category)}
                 </div>
                 <div class="product-info">
                     <h3>${product.name}</h3>
@@ -77,10 +77,10 @@ function renderProducts(list) {
                         </a>
                     </div>
                     <div class="product-buttons">
-                        <a href="https://wa.me/919512523007?text=${encodeURIComponent(message)}" class="btn-chat" target="_blank">
+                        <a href="https://wa.me/919662243377?text=${encodeURIComponent(message)}" class="btn-chat" target="_blank">
                             <i class="ti ti-brand-whatsapp"></i> Chat
                         </a>
-                        <a href="tel:+919512523007" class="btn-call">
+                        <a href="tel:+919662243377" class="btn-call">
                             <i class="ti ti-phone"></i> Call
                         </a>
                     </div>
@@ -134,10 +134,10 @@ function openModal(productId) {
         <div class="modal-row"><span>Price</span><span>₹ ${product.price.toLocaleString('en-IN')}</span></div>
         <p class="modal-description">${product.description}</p>
         <div class="modal-buttons">
-            <a href="https://wa.me/919512523007?text=${encodeURIComponent(message)}" class="btn-chat" target="_blank">
+            <a href="https://wa.me/919662243377?text=${encodeURIComponent(message)}" class="btn-chat" target="_blank">
                 <i class="ti ti-brand-whatsapp"></i> Chat
             </a>
-            <a href="tel:+919512523007" class="btn-call">
+            <a href="tel:+919662243377" class="btn-call">
                 <i class="ti ti-phone"></i> Call
             </a>
         </div>
@@ -151,27 +151,19 @@ function closeModal() {
 }
 
 /* =========================================================
-   LIGHTBOX FUNCTIONS — tap any product image to view it
-   full-screen; tap anywhere (or the X) to close it.
+   IMAGE LIGHTBOX — click any product photo and it pops up
+   bigger in its own overlay, separate from the details modal.
 ========================================================= */
-function openLightbox(src, alt) {
-    const lightboxImg = document.getElementById("lightboxImage");
-    lightboxImg.src = src;
-    lightboxImg.alt = alt;
-    document.getElementById("lightboxOverlay").classList.add("open");
+function openImageModal(src, name) {
+    document.getElementById("imageModalContent").innerHTML = `
+        <img src="${src}" alt="${name}">
+    `;
+    document.getElementById("imageModalOverlay").classList.add("open");
 }
 
-function closeLightbox() {
-    document.getElementById("lightboxOverlay").classList.remove("open");
+function closeImageModal() {
+    document.getElementById("imageModalOverlay").classList.remove("open");
 }
-
-// Allow closing the lightbox (and modal) with the Escape key
-document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-        closeLightbox();
-        closeModal();
-    }
-});
 
 /* =========================================================
    4. EVENT LISTENERS — make both tab rows clickable.

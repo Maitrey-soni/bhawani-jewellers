@@ -113,8 +113,8 @@ nav a:hover {
 }
 
 .jewelry-piece {
-    width: 130px;
-    height: 130px;
+    width: clamp(140px, 17vw, 190px);
+    height: clamp(140px, 17vw, 190px);
     border-radius: 10px;
     background: linear-gradient(150deg, #2A2118, #14100D);
     border: 1px solid rgba(201, 162, 39, 0.3);
@@ -122,10 +122,12 @@ nav a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     opacity: 0;
     transform: translateY(70px);
     animation: riseIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards, bob 4.5s ease-in-out infinite;
+    overflow: hidden;
+    padding: 8px;
 }
 
 .jewelry-piece i {
@@ -138,6 +140,16 @@ nav a:hover {
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #6E6252;
+}
+
+.jewelry-piece img {
+    width: 130px;
+    max-width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #C9A227;
+    flex-shrink: 0;
 }
 
 .jewelry-piece:nth-child(1) { animation-delay: 0.9s, 2.1s; }
@@ -276,7 +288,6 @@ nav a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 6px;
 }
 
 .product-info {
@@ -436,62 +447,42 @@ nav a:hover {
     text-decoration: none;
 }
 
+/* ---------- IMAGE LIGHTBOX ---------- */
+.image-modal-box {
+    background-color: #14100D;
+    border: 1px solid rgba(201, 162, 39, 0.4);
+    border-radius: 10px;
+    max-width: 480px;
+    width: 100%;
+    padding: 16px;
+    position: relative;
+    animation: popUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-modal-box img {
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 6px;
+    display: block;
+}
+
+@keyframes popUp {
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
 .no-results {
     text-align: center;
     color: #6E6252;
     font-size: 14px;
     padding: 40px 0;
-}
-
-/* ---------- IMAGE LIGHTBOX ---------- */
-.product-image img {
-    cursor: zoom-in;
-}
-
-.lightbox-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(11, 9, 8, 0.95);
-    z-index: 200;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-    cursor: zoom-out;
-}
-
-.lightbox-overlay.open {
-    display: flex;
-}
-
-.lightbox-overlay img {
-    max-width: 90vw;
-    max-height: 90vh;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 0 40px rgba(201, 162, 39, 0.25);
-    animation: lightboxIn 0.25s ease forwards;
-}
-
-@keyframes lightboxIn {
-    from { opacity: 0; transform: scale(0.92); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 24px;
-    right: 30px;
-    color: #F1D68C;
-    font-size: 34px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    line-height: 1;
-}
-
-.lightbox-close:hover {
-    color: #C9A227;
 }
 
 /* ---------- CONTACT SECTION ---------- */

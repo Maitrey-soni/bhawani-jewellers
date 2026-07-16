@@ -32,19 +32,19 @@
 
         <div class="jewelry-row">
             <div class="jewelry-piece">
-                <i class="ti ti-diamond"></i>
+                <img src="images/polki-necklace.webp" alt="Necklace">
                 <span>Necklace</span>
             </div>
             <div class="jewelry-piece">
-                <i class="ti ti-circle-dotted"></i>
+                <img src="images/diamond-cocktail-ring.webp" alt="Ring">
                 <span>Ring</span>
             </div>
             <div class="jewelry-piece">
-                <i class="ti ti-disc"></i>
+                <img src="images/womens-gold-bangles.jpg" alt="Bangles">
                 <span>Bangles</span>
             </div>
             <div class="jewelry-piece">
-                <i class="ti ti-sparkles"></i>
+                <img src="images/gold-jhumka.avif" alt="Earrings">
                 <span>Earrings</span>
             </div>
         </div>
@@ -100,14 +100,14 @@
                     <i class="ti ti-phone"></i>
                     <div>
                         <div class="c-label">Phone</div>
-                        <div class="c-value">+91 95125 23007</div>
+                        <div class="c-value">+91 96622 43377</div>
                     </div>
                 </div>
                 <div class="c-row">
                     <i class="ti ti-brand-whatsapp"></i>
                     <div>
                         <div class="c-label">WhatsApp</div>
-                        <div class="c-value">+91 95125 23007</div>
+                        <div class="c-value">+91 96622 43377</div>
                     </div>
                 </div>
                 <div class="c-row">
@@ -122,7 +122,7 @@
             <div class="enquire-box">
                 <h3>Looking For Something Specific?</h3>
                 <p>Tell us the occasion, budget, or design in mind — we'll help you find or create the right piece.</p>
-                <a href="https://wa.me/919512523007?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20jewelry%20piece" class="btn-gold" target="_blank">
+                <a href="https://wa.me/919662243377?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20jewelry%20piece" class="btn-gold" target="_blank">
                     <i class="ti ti-brand-whatsapp"></i> Enquire on WhatsApp
                 </a>
             </div>
@@ -141,10 +141,12 @@
         </div>
     </div>
 
-    <!-- ===== IMAGE LIGHTBOX (full-screen image popup) ===== -->
-    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
-        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-        <img id="lightboxImage" src="" alt="">
+    <!-- ===== IMAGE LIGHTBOX MODAL — pops up a bigger version of the clicked photo ===== -->
+    <div class="modal-overlay" id="imageModalOverlay">
+        <div class="image-modal-box">
+            <button class="modal-close" onclick="closeImageModal()">&times;</button>
+            <div id="imageModalContent"></div>
+        </div>
     </div>
 
     <!-- This line pulls in our JavaScript file. Must be near the end of <body>
